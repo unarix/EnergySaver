@@ -1,0 +1,14 @@
+C:\TFS\repo_lab\uDimm\dimmer\dimmer\bin\Release\dimmer.exe.config
+C:\TFS\repo_lab\uDimm\dimmer\dimmer\bin\Release\dimmer.exe.manifest
+C:\TFS\repo_lab\uDimm\dimmer\dimmer\bin\Release\dimmer.application
+C:\TFS\repo_lab\uDimm\dimmer\dimmer\bin\Release\dimmer.exe
+C:\TFS\repo_lab\uDimm\dimmer\dimmer\bin\Release\dimmer.pdb
+C:\TFS\repo_lab\uDimm\dimmer\dimmer\obj\Release\dimmer.csprojAssemblyReference.cache
+C:\TFS\repo_lab\uDimm\dimmer\dimmer\obj\Release\dimmer.Form1.resources
+C:\TFS\repo_lab\uDimm\dimmer\dimmer\obj\Release\dimmer.Properties.Resources.resources
+C:\TFS\repo_lab\uDimm\dimmer\dimmer\obj\Release\dimmer.csproj.GenerateResource.cache
+C:\TFS\repo_lab\uDimm\dimmer\dimmer\obj\Release\dimmer.csproj.CoreCompileInputs.cache
+C:\TFS\repo_lab\uDimm\dimmer\dimmer\obj\Release\dimmer.exe.manifest
+C:\TFS\repo_lab\uDimm\dimmer\dimmer\obj\Release\dimmer.application
+C:\TFS\repo_lab\uDimm\dimmer\dimmer\obj\Release\dimmer.exe
+C:\TFS\repo_lab\uDimm\dimmer\dimmer\obj\Release\dimmer.pdb
