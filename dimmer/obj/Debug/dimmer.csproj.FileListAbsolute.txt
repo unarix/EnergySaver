@@ -12,17 +12,3 @@ C:\TFS\repo_lab\uDimm\dimmer\dimmer\bin\Debug\dimmer.exe.manifest
 C:\TFS\repo_lab\uDimm\dimmer\dimmer\bin\Debug\dimmer.application
 C:\TFS\repo_lab\uDimm\dimmer\dimmer\obj\Debug\dimmer.exe.manifest
 C:\TFS\repo_lab\uDimm\dimmer\dimmer\obj\Debug\dimmer.application
-C:\TFS\repo_lab\uDimmer\win-dimmer\dimmer\bin\Debug\dimmer.exe.config
-C:\TFS\repo_lab\uDimmer\win-dimmer\dimmer\bin\Debug\dimmer.exe.manifest
-C:\TFS\repo_lab\uDimmer\win-dimmer\dimmer\bin\Debug\dimmer.application
-C:\TFS\repo_lab\uDimmer\win-dimmer\dimmer\bin\Debug\dimmer.exe
-C:\TFS\repo_lab\uDimmer\win-dimmer\dimmer\bin\Debug\dimmer.pdb
-C:\TFS\repo_lab\uDimmer\win-dimmer\dimmer\obj\Debug\dimmer.csprojAssemblyReference.cache
-C:\TFS\repo_lab\uDimmer\win-dimmer\dimmer\obj\Debug\dimmer.Form1.resources
-C:\TFS\repo_lab\uDimmer\win-dimmer\dimmer\obj\Debug\dimmer.Properties.Resources.resources
-C:\TFS\repo_lab\uDimmer\win-dimmer\dimmer\obj\Debug\dimmer.csproj.GenerateResource.cache
-C:\TFS\repo_lab\uDimmer\win-dimmer\dimmer\obj\Debug\dimmer.csproj.CoreCompileInputs.cache
-C:\TFS\repo_lab\uDimmer\win-dimmer\dimmer\obj\Debug\dimmer.exe.manifest
-C:\TFS\repo_lab\uDimmer\win-dimmer\dimmer\obj\Debug\dimmer.application
-C:\TFS\repo_lab\uDimmer\win-dimmer\dimmer\obj\Debug\dimmer.exe
-C:\TFS\repo_lab\uDimmer\win-dimmer\dimmer\obj\Debug\dimmer.pdb

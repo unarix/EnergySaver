@@ -36,11 +36,21 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.cmdReport = new System.Windows.Forms.Button();
             this.btnOpenReport = new System.Windows.Forms.Button();
+            this.cmdReport = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtKey = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.txtResult = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtMinutos = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtParams = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -74,9 +84,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(67, 36);
+            this.button2.Location = new System.Drawing.Point(12, 37);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(164, 23);
+            this.button2.Size = new System.Drawing.Size(122, 23);
             this.button2.TabIndex = 3;
             this.button2.Text = "Modo energia MIN";
             this.button2.UseVisualStyleBackColor = true;
@@ -84,9 +94,9 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(67, 66);
+            this.button3.Location = new System.Drawing.Point(162, 37);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(164, 23);
+            this.button3.Size = new System.Drawing.Size(122, 23);
             this.button3.TabIndex = 4;
             this.button3.Text = "Modo energia MAX";
             this.button3.UseVisualStyleBackColor = true;
@@ -99,10 +109,10 @@
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Location = new System.Drawing.Point(12, 109);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(302, 112);
+            this.groupBox1.Size = new System.Drawing.Size(302, 86);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Modo Ahorro PC";
+            this.groupBox1.Text = "Modo energia";
             // 
             // groupBox2
             // 
@@ -120,22 +130,12 @@
             // 
             this.groupBox3.Controls.Add(this.btnOpenReport);
             this.groupBox3.Controls.Add(this.cmdReport);
-            this.groupBox3.Location = new System.Drawing.Point(12, 228);
+            this.groupBox3.Location = new System.Drawing.Point(12, 201);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(302, 99);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Reporte (debe ejecutar esta app como administrador)";
-            // 
-            // cmdReport
-            // 
-            this.cmdReport.Location = new System.Drawing.Point(67, 29);
-            this.cmdReport.Name = "cmdReport";
-            this.cmdReport.Size = new System.Drawing.Size(164, 23);
-            this.cmdReport.TabIndex = 0;
-            this.cmdReport.Text = "Generar Reporte";
-            this.cmdReport.UseVisualStyleBackColor = true;
-            this.cmdReport.Click += new System.EventHandler(this.cmdReport_Click);
+            this.groupBox3.Text = "Reporte (Requiere ejecutar como admin)";
             // 
             // btnOpenReport
             // 
@@ -147,11 +147,111 @@
             this.btnOpenReport.UseVisualStyleBackColor = true;
             this.btnOpenReport.Click += new System.EventHandler(this.btnOpenReport_Click);
             // 
+            // cmdReport
+            // 
+            this.cmdReport.Location = new System.Drawing.Point(67, 29);
+            this.cmdReport.Name = "cmdReport";
+            this.cmdReport.Size = new System.Drawing.Size(164, 23);
+            this.cmdReport.TabIndex = 0;
+            this.cmdReport.Text = "Generar Reporte";
+            this.cmdReport.UseVisualStyleBackColor = true;
+            this.cmdReport.Click += new System.EventHandler(this.cmdReport_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.txtParams);
+            this.groupBox4.Controls.Add(this.label4);
+            this.groupBox4.Controls.Add(this.txtMinutos);
+            this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Controls.Add(this.label2);
+            this.groupBox4.Controls.Add(this.txtKey);
+            this.groupBox4.Controls.Add(this.button4);
+            this.groupBox4.Location = new System.Drawing.Point(13, 306);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(301, 220);
+            this.groupBox4.TabIndex = 8;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Modo automatico";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "API Key";
+            // 
+            // txtKey
+            // 
+            this.txtKey.Location = new System.Drawing.Point(8, 51);
+            this.txtKey.Name = "txtKey";
+            this.txtKey.Size = new System.Drawing.Size(287, 20);
+            this.txtKey.TabIndex = 1;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(6, 181);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(164, 23);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "Iniciar modo AUTOMATICO";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // txtResult
+            // 
+            this.txtResult.BackColor = System.Drawing.Color.Black;
+            this.txtResult.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtResult.ForeColor = System.Drawing.Color.Lime;
+            this.txtResult.Location = new System.Drawing.Point(332, 12);
+            this.txtResult.Multiline = true;
+            this.txtResult.Name = "txtResult";
+            this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtResult.Size = new System.Drawing.Size(427, 514);
+            this.txtResult.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 128);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(158, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Minutos antes del proximo vuelo";
+            // 
+            // txtMinutos
+            // 
+            this.txtMinutos.Location = new System.Drawing.Point(8, 144);
+            this.txtMinutos.Name = "txtMinutos";
+            this.txtMinutos.Size = new System.Drawing.Size(162, 20);
+            this.txtMinutos.TabIndex = 4;
+            this.txtMinutos.Text = "10";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(8, 78);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "API Params";
+            // 
+            // txtParams
+            // 
+            this.txtParams.Location = new System.Drawing.Point(8, 95);
+            this.txtParams.Name = "txtParams";
+            this.txtParams.Size = new System.Drawing.Size(284, 20);
+            this.txtParams.TabIndex = 6;
+            this.txtParams.Text = "idarpt=eze";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(330, 343);
+            this.ClientSize = new System.Drawing.Size(771, 538);
+            this.Controls.Add(this.txtResult);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -164,7 +264,10 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -180,6 +283,15 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button cmdReport;
         private System.Windows.Forms.Button btnOpenReport;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtKey;
+        private System.Windows.Forms.TextBox txtResult;
+        private System.Windows.Forms.TextBox txtMinutos;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtParams;
+        private System.Windows.Forms.Label label4;
     }
 }
 

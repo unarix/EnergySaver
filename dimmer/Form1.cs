@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Diagnostics;
-using Brightness;
+using System.Globalization;
+using System.Linq;
+using System.Reflection;
+using System.Windows.Forms;
+using Newtonsoft.Json;
+using RestSharp;
 
 namespace dimmer
 {
@@ -21,7 +19,7 @@ namespace dimmer
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,35 +39,37 @@ namespace dimmer
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Brightness.Brightness.SetBrightness(0); // Seteo el brillo en cero
-
             // paso al SO a modo economizador.
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
             startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-            startInfo.FileName = "cmd.exe";
+            startInfo.FileName = "CMD.EXE";
             startInfo.Arguments = "/C powercfg -s scheme_max";
             process.StartInfo = startInfo;
             process.Start();
+            process.WaitForExit();
+
+            Brightness.Brightness.SetBrightness(0); // Seteo el brillo en cero
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Brightness.Brightness.SetBrightness(120); // Seteo la gama en valor normal
-
             // paso al So a modo full 
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
             startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-            startInfo.FileName = "cmd.exe";
-            startInfo.Arguments = "/C powercfg -s scheme_min -c -";
+            startInfo.FileName = "CMD.EXE";
+            startInfo.Arguments = "/C powercfg -s scheme_min";
             process.StartInfo = startInfo;
             process.Start();
+            process.WaitForExit();
+
+            Brightness.Brightness.SetBrightness(120); // Seteo la gama en valor normal
         }
 
         private void cmdReport_Click(object sender, EventArgs e)
         {
-            string path = System.Reflection.Assembly.GetExecutingAssembly().Location.Replace("dimmer.exe","");
+            string path = System.Reflection.Assembly.GetExecutingAssembly().Location.Replace("dimmer.exe", "");
 
             ProcessStartInfo psi = new ProcessStartInfo();
             psi.FileName = "CMD.EXE";
@@ -81,8 +81,6 @@ namespace dimmer
             Process p = Process.Start(psi);
 
             p.WaitForExit();
-
-            MessageBox.Show("Esta operacion tomara 60 segundos, luego encontrara su reporte en 'C:\\Windows\\system32\\energy.html'");
         }
 
         private void btnOpenReport_Click(object sender, EventArgs e)
@@ -96,6 +94,110 @@ namespace dimmer
             {
                 MessageBox.Show(ex.Message);
             }
-    }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (txtKey.Text != "")
+            {
+                try
+                {
+                    txtResult.AppendText(Environment.NewLine);
+                    txtResult.AppendText("> Iniciando consulta a la API");
+                    txtResult.AppendText(Environment.NewLine);
+
+                    var client = new RestClient("http://api.aa2000.com.ar/api/vuelos?" + txtParams.Text);
+                    var request = new RestRequest(Method.GET);
+
+                    request.AddHeader("cache-control", "no-cache");
+                    request.AddHeader("Connection", "keep-alive");
+                    request.AddHeader("Accept-Encoding", "gzip, deflate");
+                    request.AddHeader("Host", "api.aa2000.com.ar");
+                    request.AddHeader("Cache-Control", "no-cache");
+                    request.AddHeader("Accept", "*/*");
+                    request.AddHeader("key", txtKey.Text);
+                    IRestResponse response = client.Execute(request);
+
+                    txtResult.AppendText("> Respuesta ok.");
+                    txtResult.AppendText(Environment.NewLine);
+
+                    // Convierto el json a data
+                    List<data> dta = JsonConvert.DeserializeObject<List<data>>(response.Content);
+                    
+                    // Convierto las fechas en date
+                    foreach (data d in dta)
+                        if (!d.stda.Equals(""))
+                            d.fecha = DateTime.ParseExact(d.stda, "dd/MM HH:mm", CultureInfo.InvariantCulture);
+
+                    // Ordeno el data por fecha
+                    dta = dta.OrderBy(c => c.fecha).ToList();
+
+                    //imprimo en la list
+                    llenarLst(dta, int.Parse(txtMinutos.Text));
+
+                    //
+                    autodim(dta, int.Parse(txtMinutos.Text));
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("error:" + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe ingresar una KEY");
+            }
+        }
+
+        private void autodim(List<data> dta, int minutos)
+        {
+            foreach (data d in dta)
+            {
+                if (!d.stda.Equals(""))
+                    if (d.fecha > DateTime.Now)
+                        if (DateTime.Now.AddMinutes(minutos) < d.fecha)
+                        {
+                            button2_Click(null, null);
+                            break;
+                        }
+                        else
+                        {
+                            button3_Click(null, null);
+                            break;
+                        }
+            }
+        }
+
+        private void llenarLst(List<data> dta, int minutos)
+        {
+            // ESTE METODO ME DIBUJA EN UN LISTBOX, CUALES SON LOS VUELOS QUE ENTRAN EN LA VENTANA HORARIA. 
+            // SI EXISTEN DATOS DENTRO DE LA VENTANA, ENTONCES ME PONGO EN ENERGIA MAXIMA.
+            foreach (data d in dta)
+            {
+                if (!d.stda.Equals(""))
+                {
+                    if (d.fecha > DateTime.Now)
+                    {
+                        if (DateTime.Now.AddMinutes(minutos) < d.fecha)
+                        {
+                            // Debo ponerme en reposo
+                            txtResult.AppendText(" X " + d.arpt + " " + d.nro + " " + d.stda);
+                            txtResult.AppendText(Environment.NewLine);
+                        }
+                        else
+                        {
+                            // Debo ponerme en modo MAX
+                            txtResult.AppendText(" --> " + d.arpt + " " + d.nro + " " + d.stda);
+                            txtResult.AppendText(Environment.NewLine);
+                            txtResult.AppendText("      CONSUMO DE ENERGIA MAXIMO");
+                            txtResult.AppendText(Environment.NewLine);
+                        }
+                    }
+                }
+            }
+
+
+        }
     }
 }
