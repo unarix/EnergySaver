@@ -17,20 +17,23 @@ namespace Brightness
         private static bool initialized = false;
         private static Int32 hdc;
 
-
+        /// <summary>
+        /// Utilizo esta funcion para inicializar la clase de correccion de gama
+        /// </summary>
         private static void InitializeClass()
         {
             if (initialized)
                 return;
 
-            //Get the hardware device context of the screen, we can do
-            //this by getting the graphics object of null (IntPtr.Zero)
-            //then getting the HDC and converting that to an Int32.
             hdc = Graphics.FromHwnd(IntPtr.Zero).GetHdc().ToInt32();
-
             initialized = true;
         }
 
+        /// <summary>
+        /// Esta clase setea el brillo / gama del monitor
+        /// </summary>
+        /// <param name="brightness"></param>
+        /// <returns></returns>
         public static unsafe bool SetBrightness(short brightness)
         {
             InitializeClass();
@@ -58,11 +61,7 @@ namespace Brightness
                 }
             }
 
-            //For some reason, this always returns false?
             bool retVal = SetDeviceGammaRamp(hdc, gArray);
-
-            //Memory allocated through stackalloc is automatically free'd
-            //by the CLR.
 
             return retVal;
 

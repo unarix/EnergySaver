@@ -35,8 +35,12 @@
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cmdReport = new System.Windows.Forms.Button();
+            this.btnOpenReport = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -112,21 +116,54 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Gama";
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnOpenReport);
+            this.groupBox3.Controls.Add(this.cmdReport);
+            this.groupBox3.Location = new System.Drawing.Point(12, 228);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(302, 99);
+            this.groupBox3.TabIndex = 7;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Reporte (debe ejecutar esta app como administrador)";
+            // 
+            // cmdReport
+            // 
+            this.cmdReport.Location = new System.Drawing.Point(67, 29);
+            this.cmdReport.Name = "cmdReport";
+            this.cmdReport.Size = new System.Drawing.Size(164, 23);
+            this.cmdReport.TabIndex = 0;
+            this.cmdReport.Text = "Generar Reporte";
+            this.cmdReport.UseVisualStyleBackColor = true;
+            this.cmdReport.Click += new System.EventHandler(this.cmdReport_Click);
+            // 
+            // btnOpenReport
+            // 
+            this.btnOpenReport.Location = new System.Drawing.Point(67, 59);
+            this.btnOpenReport.Name = "btnOpenReport";
+            this.btnOpenReport.Size = new System.Drawing.Size(164, 23);
+            this.btnOpenReport.TabIndex = 1;
+            this.btnOpenReport.Text = "Abrir ultimo reporte";
+            this.btnOpenReport.UseVisualStyleBackColor = true;
+            this.btnOpenReport.Click += new System.EventHandler(this.btnOpenReport_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(330, 235);
+            this.ClientSize = new System.Drawing.Size(330, 343);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "uDimmer";
+            this.Text = "ntello - dimmer";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -140,6 +177,9 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button cmdReport;
+        private System.Windows.Forms.Button btnOpenReport;
     }
 }
 
