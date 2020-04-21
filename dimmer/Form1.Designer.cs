@@ -39,14 +39,15 @@
             this.btnOpenReport = new System.Windows.Forms.Button();
             this.cmdReport = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtParams = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtMinutos = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtKey = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.txtResult = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtMinutos = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtParams = new System.Windows.Forms.TextBox();
+            this.chkAp = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -159,6 +160,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.chkAp);
             this.groupBox4.Controls.Add(this.txtParams);
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.txtMinutos);
@@ -172,6 +174,40 @@
             this.groupBox4.TabIndex = 8;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Modo automatico";
+            // 
+            // txtParams
+            // 
+            this.txtParams.Location = new System.Drawing.Point(8, 95);
+            this.txtParams.Name = "txtParams";
+            this.txtParams.Size = new System.Drawing.Size(284, 20);
+            this.txtParams.TabIndex = 6;
+            this.txtParams.Text = "idarpt=eze";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(8, 78);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "API Params";
+            // 
+            // txtMinutos
+            // 
+            this.txtMinutos.Location = new System.Drawing.Point(8, 144);
+            this.txtMinutos.Name = "txtMinutos";
+            this.txtMinutos.Size = new System.Drawing.Size(162, 20);
+            this.txtMinutos.TabIndex = 4;
+            this.txtMinutos.Text = "10";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 128);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(158, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Minutos antes del proximo vuelo";
             // 
             // label2
             // 
@@ -211,39 +247,16 @@
             this.txtResult.Size = new System.Drawing.Size(427, 514);
             this.txtResult.TabIndex = 9;
             // 
-            // label3
+            // chkAp
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 128);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(158, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Minutos antes del proximo vuelo";
-            // 
-            // txtMinutos
-            // 
-            this.txtMinutos.Location = new System.Drawing.Point(8, 144);
-            this.txtMinutos.Name = "txtMinutos";
-            this.txtMinutos.Size = new System.Drawing.Size(162, 20);
-            this.txtMinutos.TabIndex = 4;
-            this.txtMinutos.Text = "10";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 78);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "API Params";
-            // 
-            // txtParams
-            // 
-            this.txtParams.Location = new System.Drawing.Point(8, 95);
-            this.txtParams.Name = "txtParams";
-            this.txtParams.Size = new System.Drawing.Size(284, 20);
-            this.txtParams.TabIndex = 6;
-            this.txtParams.Text = "idarpt=eze";
+            this.chkAp.AutoSize = true;
+            this.chkAp.Location = new System.Drawing.Point(194, 146);
+            this.chkAp.Name = "chkAp";
+            this.chkAp.Size = new System.Drawing.Size(97, 17);
+            this.chkAp.TabIndex = 7;
+            this.chkAp.Text = "Apagar monitor";
+            this.chkAp.UseVisualStyleBackColor = true;
+            this.chkAp.CheckedChanged += new System.EventHandler(this.chkAp_CheckedChanged);
             // 
             // Form1
             // 
@@ -292,6 +305,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtParams;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox chkAp;
     }
 }
 

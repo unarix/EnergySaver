@@ -39,17 +39,39 @@ namespace dimmer
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // paso al SO a modo economizador.
+            // paso al So a modo full 
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
             startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
             startInfo.FileName = "CMD.EXE";
-            startInfo.Arguments = "/C powercfg -s scheme_max";
             process.StartInfo = startInfo;
+
+            // Corriente alterna
+            startInfo.Arguments = "/C powercfg -setacvalueindex SCHEME_MIN SUB_VIDEO aded5e82-b909-4619-9949-f5d71dac0bcb 5";
             process.Start();
             process.WaitForExit();
 
-            Brightness.Brightness.SetBrightness(0); // Seteo el brillo en cero
+            if (chkAp.Checked)
+            {
+                //Corriente alterna Tiempo de apagado monitor
+                startInfo.Arguments = "/C powercfg -setacvalueindex SCHEME_MIN SUB_VIDEO VIDEOIDLE 20"; // en 20 segundos
+                process.Start();
+                process.WaitForExit();
+            }
+            else
+            {
+                //Corriente alterna Tiempo de apagado monitor
+                startInfo.Arguments = "/C powercfg -setacvalueindex SCHEME_MIN SUB_VIDEO VIDEOIDLE 0"; // en 20 segundos
+                process.Start();
+                process.WaitForExit();
+            }
+
+            // Activar esquema
+            startInfo.Arguments = "/C powercfg -setactive SCHEME_MIN";
+            process.Start();
+            process.WaitForExit();
+
+            //Brightness.Brightness.SetBrightness(0); // Seteo el brillo en cero
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -59,12 +81,23 @@ namespace dimmer
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
             startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
             startInfo.FileName = "CMD.EXE";
-            startInfo.Arguments = "/C powercfg -s scheme_min";
             process.StartInfo = startInfo;
+
+            // Corriente alterna Brillo
+            startInfo.Arguments = "/C powercfg -setacvalueindex SCHEME_MAX SUB_VIDEO aded5e82-b909-4619-9949-f5d71dac0bcb 100";
+            process.Start();
+            process.WaitForExit();
+            // Corriente alterna Tiempo de apagado monitor
+            startInfo.Arguments = "/C powercfg -setacvalueindex SCHEME_MAX SUB_VIDEO VIDEOIDLE 0"; // nunca
+            process.Start();
+            process.WaitForExit();
+            // Activar esquema
+            startInfo.Arguments = "/C powercfg -setactive SCHEME_MAX";
             process.Start();
             process.WaitForExit();
 
-            Brightness.Brightness.SetBrightness(120); // Seteo la gama en valor normal
+
+            //Brightness.Brightness.SetBrightness(120); // Seteo la gama en valor normal
         }
 
         private void cmdReport_Click(object sender, EventArgs e)
@@ -197,6 +230,11 @@ namespace dimmer
                 }
             }
 
+
+        }
+
+        private void chkAp_CheckedChanged(object sender, EventArgs e)
+        {
 
         }
     }

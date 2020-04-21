@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="dimmer.exe" size="22960">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="dimmer.exe" size="24496">
       <assemblyIdentity name="dimmer" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wYbJiUfkGy8mIQKS2H52o50et8l3ZSbST5SBWdvawCA=</dsig:DigestValue>
+        <dsig:DigestValue>TvHSbuUNUmkVSQmQ8x5eYV39YY9COrtFjWzjniePw48=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
