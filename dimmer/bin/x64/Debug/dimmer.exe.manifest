@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="dimmer.exe" size="24496">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="dimmer.exe" size="27056">
       <assemblyIdentity name="dimmer" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>TvHSbuUNUmkVSQmQ8x5eYV39YY9COrtFjWzjniePw48=</dsig:DigestValue>
+        <dsig:DigestValue>D+HXICqdoja+2HKokoPIBJ2B59InY2XCCcvsL3b6z/g=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -98,13 +98,13 @@
       <dsig:DigestValue>R+Wg8QGvQVHX8T0ta/qbhH1bXkqY0fRnS3wBV3J0bN8=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="udimmer.png" size="19088">
+  <file name="udimmer.png" size="34706">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>F0qh7uTlmZpvhuj4t8YRb5zaSTu11CWBsMpD+rTcw5U=</dsig:DigestValue>
+      <dsig:DigestValue>iOJj+Xg8LMz1AAAHiigVyw9k3aZXiMHkzQvsr5jd1G0=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

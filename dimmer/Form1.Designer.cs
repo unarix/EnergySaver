@@ -39,6 +39,7 @@
             this.btnOpenReport = new System.Windows.Forms.Button();
             this.cmdReport = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.chkAp = new System.Windows.Forms.CheckBox();
             this.txtParams = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtMinutos = new System.Windows.Forms.TextBox();
@@ -47,7 +48,9 @@
             this.txtKey = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.txtResult = new System.Windows.Forms.TextBox();
-            this.chkAp = new System.Windows.Forms.CheckBox();
+            this.btnAuto = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblReport = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -85,21 +88,21 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 37);
+            this.button2.Location = new System.Drawing.Point(12, 51);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(122, 23);
+            this.button2.Size = new System.Drawing.Size(82, 23);
             this.button2.TabIndex = 3;
-            this.button2.Text = "Modo energia MIN";
+            this.button2.Text = "Modo MIN";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(162, 37);
+            this.button3.Location = new System.Drawing.Point(111, 51);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(122, 23);
+            this.button3.Size = new System.Drawing.Size(82, 23);
             this.button3.TabIndex = 4;
-            this.button3.Text = "Modo energia MAX";
+            this.button3.Text = "Modo MAX";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -107,8 +110,10 @@
             // 
             this.groupBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.ButtonDropDownGrid;
             this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.chkAp);
+            this.groupBox1.Controls.Add(this.btnAuto);
             this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Location = new System.Drawing.Point(12, 109);
+            this.groupBox1.Location = new System.Drawing.Point(13, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(302, 86);
             this.groupBox1.TabIndex = 5;
@@ -120,7 +125,7 @@
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.txtBrillo);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 12);
+            this.groupBox2.Location = new System.Drawing.Point(13, 104);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(302, 91);
             this.groupBox2.TabIndex = 6;
@@ -129,6 +134,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.lblReport);
             this.groupBox3.Controls.Add(this.btnOpenReport);
             this.groupBox3.Controls.Add(this.cmdReport);
             this.groupBox3.Location = new System.Drawing.Point(12, 201);
@@ -140,9 +146,9 @@
             // 
             // btnOpenReport
             // 
-            this.btnOpenReport.Location = new System.Drawing.Point(67, 59);
+            this.btnOpenReport.Location = new System.Drawing.Point(158, 30);
             this.btnOpenReport.Name = "btnOpenReport";
-            this.btnOpenReport.Size = new System.Drawing.Size(164, 23);
+            this.btnOpenReport.Size = new System.Drawing.Size(127, 23);
             this.btnOpenReport.TabIndex = 1;
             this.btnOpenReport.Text = "Abrir ultimo reporte";
             this.btnOpenReport.UseVisualStyleBackColor = true;
@@ -150,9 +156,9 @@
             // 
             // cmdReport
             // 
-            this.cmdReport.Location = new System.Drawing.Point(67, 29);
+            this.cmdReport.Location = new System.Drawing.Point(13, 30);
             this.cmdReport.Name = "cmdReport";
-            this.cmdReport.Size = new System.Drawing.Size(164, 23);
+            this.cmdReport.Size = new System.Drawing.Size(127, 23);
             this.cmdReport.TabIndex = 0;
             this.cmdReport.Text = "Generar Reporte";
             this.cmdReport.UseVisualStyleBackColor = true;
@@ -160,7 +166,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.chkAp);
+            this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.txtParams);
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.txtMinutos);
@@ -173,13 +179,24 @@
             this.groupBox4.Size = new System.Drawing.Size(301, 220);
             this.groupBox4.TabIndex = 8;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Modo automatico";
+            this.groupBox4.Text = "Modo API";
+            // 
+            // chkAp
+            // 
+            this.chkAp.AutoSize = true;
+            this.chkAp.Location = new System.Drawing.Point(12, 24);
+            this.chkAp.Name = "chkAp";
+            this.chkAp.Size = new System.Drawing.Size(97, 17);
+            this.chkAp.TabIndex = 7;
+            this.chkAp.Text = "Apagar monitor";
+            this.chkAp.UseVisualStyleBackColor = true;
+            this.chkAp.CheckedChanged += new System.EventHandler(this.chkAp_CheckedChanged);
             // 
             // txtParams
             // 
             this.txtParams.Location = new System.Drawing.Point(8, 95);
             this.txtParams.Name = "txtParams";
-            this.txtParams.Size = new System.Drawing.Size(284, 20);
+            this.txtParams.Size = new System.Drawing.Size(287, 20);
             this.txtParams.TabIndex = 6;
             this.txtParams.Text = "idarpt=eze";
             // 
@@ -196,7 +213,7 @@
             // 
             this.txtMinutos.Location = new System.Drawing.Point(8, 144);
             this.txtMinutos.Name = "txtMinutos";
-            this.txtMinutos.Size = new System.Drawing.Size(162, 20);
+            this.txtMinutos.Size = new System.Drawing.Size(103, 20);
             this.txtMinutos.TabIndex = 4;
             this.txtMinutos.Text = "10";
             // 
@@ -205,9 +222,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(8, 128);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(158, 13);
+            this.label3.Size = new System.Drawing.Size(155, 13);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Minutos antes del proximo vuelo";
+            this.label3.Text = "Ventana hasta el proximo vuelo";
             // 
             // label2
             // 
@@ -227,11 +244,11 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(6, 181);
+            this.button4.Location = new System.Drawing.Point(168, 180);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(164, 23);
+            this.button4.Size = new System.Drawing.Size(127, 23);
             this.button4.TabIndex = 0;
-            this.button4.Text = "Iniciar modo AUTOMATICO";
+            this.button4.Text = "Consultar";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -247,16 +264,33 @@
             this.txtResult.Size = new System.Drawing.Size(427, 514);
             this.txtResult.TabIndex = 9;
             // 
-            // chkAp
+            // btnAuto
             // 
-            this.chkAp.AutoSize = true;
-            this.chkAp.Location = new System.Drawing.Point(194, 146);
-            this.chkAp.Name = "chkAp";
-            this.chkAp.Size = new System.Drawing.Size(97, 17);
-            this.chkAp.TabIndex = 7;
-            this.chkAp.Text = "Apagar monitor";
-            this.chkAp.UseVisualStyleBackColor = true;
-            this.chkAp.CheckedChanged += new System.EventHandler(this.chkAp_CheckedChanged);
+            this.btnAuto.Location = new System.Drawing.Point(209, 51);
+            this.btnAuto.Name = "btnAuto";
+            this.btnAuto.Size = new System.Drawing.Size(82, 23);
+            this.btnAuto.TabIndex = 8;
+            this.btnAuto.Text = "Rotar 20 seg.";
+            this.btnAuto.UseVisualStyleBackColor = true;
+            this.btnAuto.Click += new System.EventHandler(this.btnAuto_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(112, 148);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Minutos";
+            // 
+            // lblReport
+            // 
+            this.lblReport.AutoSize = true;
+            this.lblReport.Location = new System.Drawing.Point(13, 68);
+            this.lblReport.Name = "lblReport";
+            this.lblReport.Size = new System.Drawing.Size(35, 13);
+            this.lblReport.TabIndex = 2;
+            this.lblReport.Text = "Path: ";
             // 
             // Form1
             // 
@@ -274,9 +308,11 @@
             this.Text = "ntello - dimmer";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
@@ -306,6 +342,9 @@
         private System.Windows.Forms.TextBox txtParams;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox chkAp;
+        private System.Windows.Forms.Button btnAuto;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblReport;
     }
 }
 
