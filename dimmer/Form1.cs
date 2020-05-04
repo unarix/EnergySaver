@@ -59,39 +59,39 @@ namespace dimmer
             process.StartInfo = startInfo;
 
             // Corriente alterna
-            startInfo.Arguments = "/C powercfg -setacvalueindex 079aa309-89cf-4675-88fc-67e4428a4cf1 SUB_VIDEO aded5e82-b909-4619-9949-f5d71dac0bcb 0";
+            startInfo.Arguments = "/C powercfg -setacvalueindex SCHEME_MIN SUB_VIDEO aded5e82-b909-4619-9949-f5d71dac0bcb 0";
             process.Start();
             process.WaitForExit();
 
-            startInfo.Arguments = "/C powercfg -setdcvalueindex 079aa309-89cf-4675-88fc-67e4428a4cf1 SUB_VIDEO aded5e82-b909-4619-9949-f5d71dac0bcb 0";
+            startInfo.Arguments = "/C powercfg -setdcvalueindex SCHEME_MIN SUB_VIDEO aded5e82-b909-4619-9949-f5d71dac0bcb 0";
             process.Start();
             process.WaitForExit();
 
             if (chkAp.Checked)
             {
                 //Corriente alterna Tiempo de apagado monitor
-                startInfo.Arguments = "/C powercfg -setacvalueindex 079aa309-89cf-4675-88fc-67e4428a4cf1 SUB_VIDEO VIDEOIDLE 20"; // en 20 segundos
+                startInfo.Arguments = "/C powercfg -setacvalueindex SCHEME_MIN SUB_VIDEO VIDEOIDLE 1"; // en 20 segundos
                 process.Start();
                 process.WaitForExit();
 
-                startInfo.Arguments = "/C powercfg -setdcvalueindex 079aa309-89cf-4675-88fc-67e4428a4cf1 SUB_VIDEO VIDEOIDLE 20"; // en 20 segundos
+                startInfo.Arguments = "/C powercfg -setdcvalueindex SCHEME_MIN SUB_VIDEO VIDEOIDLE 1"; // en 20 segundos
                 process.Start();
                 process.WaitForExit();
             }
             else
             {
                 //Corriente alterna Tiempo de apagado monitor
-                startInfo.Arguments = "/C powercfg -setacvalueindex 079aa309-89cf-4675-88fc-67e4428a4cf1 SUB_VIDEO VIDEOIDLE 0"; // en 20 segundos
+                startInfo.Arguments = "/C powercfg -setacvalueindex SCHEME_MIN SUB_VIDEO VIDEOIDLE 0"; // en 20 segundos
                 process.Start();
                 process.WaitForExit();
 
-                startInfo.Arguments = "/C powercfg -setdcvalueindex 079aa309-89cf-4675-88fc-67e4428a4cf1 SUB_VIDEO VIDEOIDLE 0"; // en 20 segundos
+                startInfo.Arguments = "/C powercfg -setdcvalueindex SCHEME_MIN SUB_VIDEO VIDEOIDLE 0"; // en 20 segundos
                 process.Start();
                 process.WaitForExit();
             }
 
             // Activar esquema
-            startInfo.Arguments = "/C powercfg -setactive 079aa309-89cf-4675-88fc-67e4428a4cf1";
+            startInfo.Arguments = "/C powercfg -setactive SCHEME_MIN";
             process.Start();
             process.WaitForExit();
         }
@@ -114,15 +114,15 @@ namespace dimmer
             process.StartInfo = startInfo;
 
             // Corriente alterna Brillo
-            startInfo.Arguments = "/C powercfg -setacvalueindex a98efcdb-7c9a-4ed8-abbc-f0d3fdea31c3 SUB_VIDEO aded5e82-b909-4619-9949-f5d71dac0bcb 100";
+            startInfo.Arguments = "/C powercfg -setacvalueindex SCHEME_MAX SUB_VIDEO aded5e82-b909-4619-9949-f5d71dac0bcb 100";
             process.Start();
             process.WaitForExit();
             // Corriente alterna Tiempo de apagado monitor
-            startInfo.Arguments = "/C powercfg -setacvalueindex a98efcdb-7c9a-4ed8-abbc-f0d3fdea31c3 SUB_VIDEO VIDEOIDLE 0"; // nunca
+            startInfo.Arguments = "/C powercfg -setacvalueindex SCHEME_MAX SUB_VIDEO VIDEOIDLE 0"; // nunca
             process.Start();
             process.WaitForExit();
             // Activar esquema
-            startInfo.Arguments = "/C powercfg -setactive a98efcdb-7c9a-4ed8-abbc-f0d3fdea31c3";
+            startInfo.Arguments = "/C powercfg -setactive SCHEME_MAX";
             process.Start();
             process.WaitForExit();
         }
